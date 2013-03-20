@@ -15,7 +15,7 @@ Let's say you have a simple sign-up form:
         <label for="username">Username</label>:  <input name=username id=username><br>
     </form>
 
-Here's the old way:
+The old way:
 
     $("#myform").submit(function(e) {
         e.preventDefault();
@@ -27,6 +27,7 @@ Here's the old way:
         values.zip = $("#zip").val();
         values.email = $("#email").val();
         values.username = $("#username").val();
+        $("#myform").hide()
         // upload or do something with the data
     });
 
@@ -35,16 +36,18 @@ The new way with formscrape!
     $("#myform").submit(function(e) {
         e.preventDefault();
         var values = {};
-        $(this).formscrape(values);
+        $(this).formscrape(values).hide();
         // upload or do something with the data
     });
 
  
 Now, to add fields, you just add them to your HTML -- you don't need to bother adding them to your javascript, too! Id's not required anymore for each and every form input, either, thus keeping your DOM a bit cleaner.
 
+The values object should be initialized before you call formscrape and it will be modified transparently. It can be empty or filled with the prior data which will be updated by whatever the user has entered. This can be useful if you only want to show a field or two while updating a larger hash with more fields -- for example, if you have a separate form for password resets.
+
 The requirements are simply that the form input fields have matching `name`
-attributes -- that is, that for this form there must be a <input name=name> and
-an <input name=email>.
+attributes -- that is, that for this form there must be a `<input name=name>` and
+an `<input name=email>`.
 
 
 Checkboxes and radios will be properly set in the resulting JSON document as regular JSON booleans (true and false).
@@ -53,6 +56,6 @@ Checkboxes and radios will be properly set in the resulting JSON document as reg
 Related
 -------
 
-See <a href="https://github.com/jamiesonbecker/formplode.js">formplode.js</a> for the reverse of this plugin -- explode the data back into the form before the user edits it.
+See [formplode.js](https://github.com/jamiesonbecker/formplode.js) for the reverse of this plugin -- explode the data back into the form before the user edits it.
 
 
