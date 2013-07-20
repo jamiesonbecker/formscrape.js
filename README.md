@@ -1,3 +1,5 @@
+*Now also available in [unframework.js](https://github.com/jamiesonbecker/unframework.js)*
+
 formscrape.js
 =============
 
@@ -37,7 +39,6 @@ The new way with formscrape!
         e.preventDefault();
         var values = {};
         $(this).formscrape(values).hide();
-        // upload or do something with the data
     });
 
  
