@@ -13,7 +13,7 @@ $.fn.formscrape = function(data) {
         data[field.name] = field.value;
     });
     // fixup checkboxes
-    $("[type=checkbox]". this).each(function() {
+    $("[type=checkbox]", this).each(function() {
         var name = $(this).attr("name");
         // convert "checked" to true/false
         data[name] = name in data;
