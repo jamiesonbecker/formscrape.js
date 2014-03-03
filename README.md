@@ -53,6 +53,8 @@ an `<input name=email>`.
 
 Checkboxes and radios will be properly set in the resulting JSON document as regular JSON booleans (true and false).
 
+NOTE: if using with fillup.js, be sure to specify your stage div; for example, $(".myform", ".stage").formscrape(data); Otherwise, you may scrape your off-stage form, which is probably blank. This warning is true with formplode.js as well.
+
 
 Related
 -------
